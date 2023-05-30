@@ -1,0 +1,158 @@
+(10,15,20,12,4)
+(0,2)
+
+(21,15,20,12,4)
+(1,2)
+
+
+public int[] ganacia(int[] precios){
+//int ganaciaMaxima;
+int index=1;
+int minimo=precio[0];
+int maximo=precios[1];
+resultado[0]=precios[0];
+resultado[1]=precios[1];
+
+    while(index<precios.length){
+        indexMax=1;
+        if(precio[index+indexMax]>=maximo)
+            maximo=precio[index+indexMax];
+            for(int i=index-1;i<index+indexMax;i++){
+}
+        else
+            indexMax+=1;
+            
+    }
+    
+   return(resultado);	
+
+}
+
+public []int ganacia(int[] precios){
+int ganaciaMaxima;
+int pivote=0;
+int[] resultado = new int[2];
+
+  while(pivote<precios.length-1){
+    diferencia=0;
+    for(int i = pivote+1;i<precios.length;i++){
+        diferencia=precios[pivote]-precio[i];
+        if(diferecia>ganaciaMaxima){
+            resultado[0]=pivote;
+            resultado[1]=i;
+        }
+     pivote++;	
+    }
+    
+   return(resultado);
+  }
+	
+}
+
+(21,22,7,6,9,5,*4,12,21,18,3,16,18)
+
+
+
+optimizado
+
+La idea es redicir la complejidad a N, pero para esto hay que inciar con los dos primero valores, considerandolos el maximo y el minimo iniciales,
+luego se busca un nuevo maximo candidato, luego entre los elementos desde el maximo actual hasta el maximoCandidato, se busca un minimo candidato.
+Con estos cuatro valores se evaluan diferentes casos, el ideal seria que el minimo origal sea menor al nuevo minimo y el nuevo maximo sea mayor al
+mayor original, terminado esto, se vuelve a recorrer el arreglo desde donde nos quedamos buscando un nuevo maximo mayor al maximo actual.
+
+
+
+
+public int[] ganacia(int[] precios){
+//int ganaciaMaxima;
+int index=2;
+int diferencia;
+int minimo=precios[0];
+int maximo=precios[1];
+int minimoCandidato=0;
+int maximoCandidato=0;
+indexMaxCand;
+indexMinCand;
+resultado[0]=0;
+resultado[1]=1;
+maximaGanacia=0
+
+    while(index<precios.length-1){
+        indexMax=0;
+		while(maximoCandidato==0 && index+indexMax<precios.length){
+			if(precio[index+indexMax]>=maximo){
+				maximoCandidato=precios[index+indexMax];
+				minimoCandidato=precios[index+indexMax];
+				indexMaxCand=index+indexMax;
+				
+				
+				for(int i=index+indexMax;i>=index;i--){
+					if (precios[i]<maximoCandidato){
+						minimoCandito=precios[i];
+						indexMinCand=i;
+					}
+						
+				}
+				index=index+indexMax;	
+			}	
+			else
+				indexMax+=1;
+		}
+		//en caso de no encontrar un maximo nuevo, se toma el siguiente par del arreglo
+		if(maximoCandidato==0){
+			index=index+2;
+			maximoCandidato=precios[index]
+			minimoCandidato=precios[index-1]
+			indexMaxCand=index;
+			indexMinCand=index-1;
+		}
+		
+		//Se comparan cadidatos con valores anteriores en diferentes supuestos	
+		maximaGanacia=maximo-minimo
+		if(minimo>minimoCandidato && maximo>maximoCandidato){
+				int diferencia1=maximoCandidato-minimoCandidato;
+				int diferencia2=maximoCandidato-minimo;
+				if(diferencia2>maximaGanacia){
+					maximo=maximoCandidato
+					resultado[1]=indexMaxCand;
+				}
+				if(diferencia1>maximaGanacia){
+					maximo=maximoCandidato;
+					minimo=maximoCandidato;
+					resultado[1]=indexMaxCand;
+					resultado[0]=indexMinCand;
+					
+				}
+		
+		}
+			
+		else if(minimo<minimoCandidato && maximo<maximoCandidato){
+				int diferencia1=maximoCandidato-minimoCandidato;
+				int diferencia2=maximoCandidato-minimo;
+				if(diferencia2>maximaGanacia){
+					maximo=maximoCandidato
+					resultado[1]=indexMaxCand;
+				}
+				if(diferencia1>maximaGanacia){
+					maximo=maximoCandidato;
+					minimo=maximoCandidato;
+					resultado[1]=indexMaxCand;
+					resultado[0]=indexMinCand;
+					
+				}
+		}
+			//caso ideal maximoCandidato mayor a maximo y minimo menor a MinimoCandidato	
+		else{
+				minimo=minimoCandidato;
+				resultado[0]=indexMinCand;
+				maximo=maximoCandidato;
+				resultado[1]=indexMaxCand;
+			
+		} 	
+			
+            
+    }
+    
+   return(resultado);	
+
+}
