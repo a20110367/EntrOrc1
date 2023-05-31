@@ -3,7 +3,7 @@ package nom;
 import java.util.Random;
 import java.util.Arrays;
 
-public class prueba4 {
+public class Prueba4 {
 	public static void main(String[] args) {
 
 		int cantidad = 10;
